@@ -2,31 +2,58 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>AR</title>
+  <title>AR Model Viewer</title>
 
   <script type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
 
   <style>
-    body { margin: 0; }
+    body {
+      margin: 0;
+      background: #eeeeee;
+      overflow: hidden;
+    }
+
     model-viewer {
       width: 100vw;
       height: 100vh;
-      background: #fff;
+    }
+
+    .ar-button {
+      position: fixed;
+      bottom: calc(env(safe-area-inset-bottom) + 80px);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 14px 22px;
+      font-size: 17px;
+      background: black;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      z-index: 10;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
 
-<model-viewer
-  src="./QuarryModel1.glb"
-  ios-src="./QuarryModel1.usdz"
-  ar
-  ar-modes="quick-look"
-  camera-controls>
-</model-viewer>
+  <model-viewer
+    src="./QuarryModel1.glb"
+    ios-src="./QuarryModel1.usdz"
+    ar
+    ar-modes="quick-look scene-viewer webxr"
+    camera-controls
+    shadow-intensity="1"
+    exposure="1">
+
+    <!-- AR Button -->
+    <button slot="ar-button" class="ar-button">
+      View in AR
+    </button>
+
+  </model-viewer>
 
 </body>
 </html>
