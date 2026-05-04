@@ -22,7 +22,7 @@
 
     .ar-button {
       position: fixed;
-      bottom: 24px;
+      bottom: calc(env(safe-area-inset-bottom) + 80px);
       left: 50%;
       transform: translateX(-50%);
       padding: 14px 22px;
@@ -40,8 +40,8 @@
 <body>
 
   <model-viewer
-    src="./QuarryModel1.glb"
-    ios-src="./QuarryModel1.usdz"
+    src="./model.glb"
+    ios-src="./model.usdz"
     ar
     ar-modes="quick-look scene-viewer webxr"
     camera-controls
