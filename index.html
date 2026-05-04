@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>AR Model Viewer</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <style>
-      body {
-        margin: 0;
-      }
-      model-viewer {
-        width: 100vw;
-        height: 100vh;
-        background: #eeeeee;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <title>AR Model Viewer</title>
 
-  <body>
-    <model-viewer
-      src="Quarry Model  middle section.glb"
-      ar
-      ar-modes="webxr scene-viewer"
-      camera-controls
-      auto-rotate
-      shadow-intensity="1">
-    </model-viewer>
-  </body>
+  <!-- Model Viewer -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #eeeeee;
+    }
+
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+
+  <model-viewer
+    src="./Quarry%20Model%20%20middle%20section.glb"
+    ios-src="./Quarry%20Model%20%20middle%20section.usdz"
+    ar
+    ar-modes="quick-look scene-viewer webxr"
+    camera-controls
+    auto-rotate
+    shadow-intensity="1"
+    exposure="1"
+    environment-image="neutral">
+
+    <!-- AR Button (helps visibility) -->
+    <button slot="ar-button" style="
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 12px 20px;
+      font-size: 16px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;">
+      View in AR
+    </button>
+
+  </model-viewer>
+
+</body>
 </html>
